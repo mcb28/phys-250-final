@@ -252,7 +252,7 @@ class TravelTimeCalculator:
         # Eliminate non-raytracing reflected solutions
         if caustic is not None: # Check that such solutions exist in our domain
             for node in caustic_nodes:
-                self.travel_time_fields['early'].values[node[0], node[1]:] = np.inf
+                self.travel_time_fields['early'].values[node[0], node[1]:boundary_z_ind] = np.inf
 
         if early_only:  # Save earliest travel-times
             return True
